@@ -1,0 +1,137 @@
+<style>
+    body {
+  background-color: #004aad; /* Mesma cor azul de fundo */
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 20px 15px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Container geral do formulário para centralizar e limitar largura */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #0058d9; /* Azul mais claro para o formulário */
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Cada grupo de input com espaçamento */
+form div {
+  margin-bottom: 20px;
+}
+
+/* Labels claros e legíveis */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #5e83ffff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Inputs e selects com visual consistente */
+form select,
+form input[type="date"],
+form input[type="time"],
+form input[type="text"],
+form input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  background-color: #003d99;
+  color: white;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Foco no input */
+form select:focus,
+form input[type="date"]:focus,
+form input[type="time"]:focus,
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+  background-color: #0058d9;
+  box-shadow: 0 0 8px 2px #80b3ff;
+  color: white;
+}
+
+/* Botão de submit estilizado */
+form button {
+  width: 100%;
+  background-color: rgba(75, 232, 135, 0.8); /* Laranja vibrante */
+  border: none;
+  padding: 12px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(75, 232, 135, 0.8);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover e foco no botão */
+form button:hover,
+form button:focus {
+  background-color: rgba(75, 232, 135, 0.8);
+  outline: none;
+  box-shadow: 0 7px 20px rgba(75, 232, 135, 0.8);
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 450px) {
+  form {
+    padding: 20px 15px;
+  }
+}
+
+</style>
+
+<h1>Nova Consulta</h1>
+
+<?= $this->Form->create($consulta) ?>
+    <div>
+        <?= $this->Form->control('medico_id', [
+            'label' => 'Médico',
+            'options' => $medicos,
+            'empty' => '-- Selecione um médico --'
+        ]) ?>
+    </div>
+    <div>
+        <?= $this->Form->control('paciente_id', [
+            'label' => 'Paciente',
+            'options' => $pacientes,
+            'empty' => '-- Selecione um paciente --'
+        ]) ?>
+    </div>
+    <div>
+        <?= $this->Form->control('data', [
+            'label' => 'Data',
+            'type' => 'date'
+        ]) ?>
+    </div>
+    <div>
+        <?= $this->Form->control('hora', [
+            'label' => 'Hora',
+            'type' => 'time'
+        ]) ?>
+    </div>
+    <div>
+        <?= $this->Form->button('Salvar Consulta') ?>
+    </div>
+<?= $this->Form->end() ?>

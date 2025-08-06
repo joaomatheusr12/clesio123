@@ -1,0 +1,89 @@
+/* Container dos cards: flexível, responsivo e espaçado */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: hsl(211, 100%, 50%);
+}
+
+/* Card individual: sombra leve, borda arredondada e padding */
+.card {
+    background-color: hsl(211, 100%, 50%);
+    border: 1px solid hsl(211, 100%, 50%);
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    width: 280px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efeito hover para dar feedback */
+.card:hover,
+.card:focus-within {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Imagem no card: altura fixa, largura total, object-fit */
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Título do card */
+.card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Texto das informações */
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+/* Botão: cor destacada, borda arredondada e transição */
+.card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgba(75, 232, 135, 0.8);
+    border: none;
+    border-radius: 6px;
+    color: rgba(75, 232, 135, 0.8);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover e foco no botão */
+.card button:hover,
+.card button:focus {
+    background-color: rgba(75, 232, 135, 0.8);
+    outline: none;
+}
+
+/* Para acessibilidade: foco visível no botão */
+.card button:focus-visible {
+    outline: 3px solid rgba(75, 232, 135, 0.8);
+    outline-offset: 2px;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

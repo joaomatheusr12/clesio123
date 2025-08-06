@@ -1,0 +1,41 @@
+/* Estilos básicos do menu */
+.main {
+  background-color: #004aad;  /* Azul escuro */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-start; /* Itens alinhados à esquerda */
+  gap: 25px;
+  font-family: Arial, sans-serif;
+}
+
+/* Links do menu */
+.main a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito hover e foco para acessibilidade */
+.main a:hover,
+.main a:focus {
+  background-color: #003080; /* Azul mais escuro */
+  outline: none;
+}
+
+/* Link ativo (página atual) */
+.main a.active {
+  background-color: #002060;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Menu responsivo - para telas pequenas empilhar vertical */
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
